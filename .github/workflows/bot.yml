@@ -2,24 +2,27 @@ name: VK Dating Bot
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Получить код
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Установить Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Установить зависимости
         run: pip install -r requirements.txt
 
-      - name: Run bot
+      - name: Запустить бота
         env:
           VK_TOKEN: ${{ secrets.VK_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
