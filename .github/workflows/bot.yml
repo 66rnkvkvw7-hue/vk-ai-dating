@@ -24,5 +24,7 @@ jobs:
 
       - name: Запустить бота
         env:
-          VK_TOKEN: ${{ secrets.VK_TOKEN }}
-        run: python bot.py
+           env:
+           
+  VK_TOKEN: ${{ secrets.VK_TOKEN }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
